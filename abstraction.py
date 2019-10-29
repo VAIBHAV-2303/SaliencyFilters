@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
+import pickle
 import sys
 
 # Loading image as RGB
@@ -38,3 +39,8 @@ plt.subplot(1, 2, 2)
 I = cv2.cvtColor(I, cv2.COLOR_Lab2RGB)
 plt.imshow(I)
 plt.show()
+
+# Pickling the results
+centers[:, 3:] = (S/m)*centers[:, 3:]
+with open('centers.pkl', 'ab') as f:
+	pickle.dump(centers, f)
