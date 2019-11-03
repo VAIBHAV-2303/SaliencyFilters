@@ -14,6 +14,9 @@ To run:
 ```console
 python abstraction.py <path_to_img> <num_of_superpixels>  
 ```
+```
+python uniqueness.py <path_to_centers> <path_to_labels>
+```
 
 # Working
 + Abstraction - In this we try to remove unimportant details and maintain the overall structure of the image. We aim to cluster images with similar properties such as colour into perceptually homogenous regions. We follow the approach of SLIC but instead of clustering in RGBXY space, we cluster in CIELab space. This ensures, connectivity while retaining the locality, compactness and edge awareness of the superpiexels.
