@@ -13,8 +13,15 @@ k = 6
 alpha = 1/30
 beta = 1/30
 
-# Loading labels, centers, uniqueness values, and distribution
+# Loading centers, uniqueness values, and distribution
+with open(sys.argv[2]) as f:
+	centers = pickle.load(f)
 
+with open(sys.argv[3]) as f:
+	U = pickle.load(f)
+
+with open(sys.argv[4]) as f:
+	D = pickle.load(f)
 
 
 # Normalizing uniqueness and distribution
@@ -23,6 +30,7 @@ S = U*np.exp(-k*D)
 # Creating the final output
 I = cv2.imread(sys.argv[1])
 I = cv2.cvtColor(I, cv2.COLOR_BGR2Lab)
+h, w = I.shape[:2]
 final = np.zeros((h, w))
 for i in range(h):
 	for j in range(w):

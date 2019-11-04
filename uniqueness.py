@@ -12,13 +12,13 @@ def load(filename):
 	return data
 
 def gaussWeight(pi,pj):
-	"""Calculates the gaussian weights between 2 segment locations"""
-    sigma = 10
-    prox = np.sqrt(np.sum((pi-pj)**2))
+    """Calculates the gaussian weights between 2 segment locations"""
+    sigma = 70
+    prox = np.sum((pi-pj)**2)
     return np.exp(-prox/(2*(sigma**2)))
 
 def uniqCenteres(centers):
-	"""Computes the unique centers of the image """
+	"""Computes the uniqueness of the centers of the image """
 	uCenter = []
 	for a in centers:
 	    c = 0
@@ -29,7 +29,7 @@ def uniqCenteres(centers):
 	        cj = k[:3]
 	        pj = k[-2:]
 	        z += gaussWeight(pi,pj)
-	        c += np.sqrt(np.sum((ci-cj)**2))*gaussWeight(pi,pj)
+	        c += np.sum((ci-cj)**2)*gaussWeight(pi,pj)
 	    uCenter.append(c/z)
 	return np.asarray(uCenter)
 
@@ -56,4 +56,4 @@ if __name__ == '__main__':
 	unique = uniqCenteres(centers)
 	plt.imshow(plotImage(unique,labels),cmap='gray')
 	plt.show()
-	save('uniq.pkl',unique)
+	save('uniq',unique)
