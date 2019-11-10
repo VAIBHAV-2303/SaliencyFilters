@@ -44,16 +44,14 @@ def plotImage(centers,labels):
 
 def save(filename,centers):
 	"""saves in form of pickle file"""
-	with open(filename+'.pkl', 'ab') as f:
+	with open(filename+'.pkl', 'wb') as f:
 		pickle.dump(centers, f)
 
 if __name__ == '__main__':
-	if len(sys.argv) < 3:
-		print("Error, please mention centers and labels")
-		exit()
-	centers = load(sys.argv[1])
-	labels = load(sys.argv[2])
+	centers = load('centers.pkl')
+	labels = load('labels.pkl')
 	unique = uniqCenteres(centers)
+	unique = unique/np.max(unique)
 	plt.imshow(plotImage(unique,labels),cmap='gray')
 	plt.show()
 	save('uniq',unique)
