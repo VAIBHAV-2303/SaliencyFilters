@@ -42,7 +42,7 @@ plt.show()
 
 # Pickling the results
 centers[:, 3:] = (S/m)*centers[:, 3:]
-with open('centers.pkl', 'ab') as f:
+with open('centers.pkl', 'wb') as f:
 	pickle.dump(centers, f)
-with open('labels.pkl', 'ab') as f:
+with open('labels.pkl', 'wb') as f:
 	pickle.dump(labels, f)
