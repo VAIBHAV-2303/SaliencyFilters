@@ -21,7 +21,6 @@ with open('distribution.pkl', 'rb') as f:
 
 # Normalizing uniqueness and distribution
 S = U*np.exp(k*D)
-print(S)
 
 # Creating the final output
 I = cv2.imread(sys.argv[1])
