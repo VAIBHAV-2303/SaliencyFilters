@@ -36,7 +36,6 @@ def plotImage(colors,labels):
 centers = load("centers.pkl")
 labels = load("labels.pkl")
 
-
 # calculating distribution
 distribution = []
 for centi in centers:

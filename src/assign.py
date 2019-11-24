@@ -38,5 +38,9 @@ for i in range(h):
 		W = np.exp(-0.5*(alpha*c  + beta*p))
 		final[i, j] = S.dot(W)/np.sum(W)
 
+# Contrast adjustment
+final = (255*(final - np.min(final))/(np.max(final - np.min(final)))).astype(np.uint8)
+final[final>15] = 255
+
 plt.imshow(final, cmap='gray')
 plt.show()

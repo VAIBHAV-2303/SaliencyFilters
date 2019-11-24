@@ -6,11 +6,9 @@ import sys
 
 # Loading image as RGB
 I = cv2.imread(sys.argv[1])
-plt.subplot(1, 2, 1)
-plt.imshow(cv2.cvtColor(I, cv2.COLOR_BGR2RGB))
 
 # Parameters
-m = 80
+m = 100
 K = int(sys.argv[2])
 N = I.shape[0]*I.shape[1]
 S = ((N/K)**0.5)
@@ -35,7 +33,6 @@ for i in range(I.shape[0]):
 	for j in range(I.shape[1]):
 		I[i, j] = centers[labels[i, j]][:3]
 
-plt.subplot(1, 2, 2)
 I = cv2.cvtColor(I, cv2.COLOR_Lab2RGB)
 plt.imshow(I)
 plt.show()

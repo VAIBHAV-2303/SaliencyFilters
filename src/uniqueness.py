@@ -13,7 +13,7 @@ def load(filename):
 
 def gaussWeight(pi,pj):
     """Calculates the gaussian weights between 2 segment locations"""
-    sigma = 70
+    sigma = 60
     prox = np.sum((pi-pj)**2)
     return np.exp(-prox/(2*(sigma**2)))
 
