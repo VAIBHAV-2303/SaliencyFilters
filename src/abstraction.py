@@ -35,7 +35,7 @@ for i in range(I.shape[0]):
 		I[i, j] = centers[labels[i, j]][:3]
 
 I = cv2.cvtColor(I, cv2.COLOR_Lab2RGB)
-# plt.imshow(I)
+plt.imshow(I)
 # plt.show()
 outputdir = 'results/'
 if not os.path.exists(outputdir):

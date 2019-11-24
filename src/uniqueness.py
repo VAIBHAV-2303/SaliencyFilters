@@ -54,6 +54,6 @@ if __name__ == '__main__':
 	unique = uniqCenteres(centers)
 	unique = unique / np.max(unique)
 	plt.imshow(plotImage(unique,labels),cmap='gray')
-	plt.show()
+	# plt.show()
 	plt.savefig('results/uniqueness.png')
 	save('uniq',unique)
