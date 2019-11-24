@@ -44,3 +44,5 @@ final[final>15] = 255
 
 plt.imshow(final, cmap='gray')
 plt.show()
+plt.savefig('results/saliency')
+print('Assignment Completed')
