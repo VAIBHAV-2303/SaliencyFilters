@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import cv2
 import pickle
 import sys
-# import abstraction.outputdir as out
 
 def load(filename):
 	"""Loads data from pickle files"""
@@ -32,6 +31,7 @@ def uniqCenteres(centers):
 	        z += gaussWeight(pi,pj)
 	        c += np.sum((ci-cj)**2)*gaussWeight(pi,pj)
 	    uCenter.append(c/z)
+	print("Uniqueness completed")
 	return np.asarray(uCenter)
 
 def plotImage(centers,labels):
@@ -52,8 +52,7 @@ if __name__ == '__main__':
 	centers = load('centers.pkl')
 	labels = load('labels.pkl')
 	unique = uniqCenteres(centers)
-	unique = unique/np.max(unique)
+	unique = unique / np.max(unique)
 	plt.imshow(plotImage(unique,labels),cmap='gray')
-	plt.savefig('results/uniqueness.png')
+	plt.show()
 	save('uniq',unique)
-	print('Uniqueness Calculated')
