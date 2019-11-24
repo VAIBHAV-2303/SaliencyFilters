@@ -31,7 +31,7 @@ python3 distribution.py
 python3 assignment.py <path_to_img>
 ```
 
-* To directly see the result:
+* To directly run and save the results in a folder named 'results' in the same directory:
 ```console
 bash script.sh <path_to_img> <num_of_superpixels>
 ```
