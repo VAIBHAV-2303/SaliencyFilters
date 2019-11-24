@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import pickle
 import sys
+import os
 
 # Loading image as RGB
 I = cv2.imread(sys.argv[1])
@@ -34,8 +35,12 @@ for i in range(I.shape[0]):
 		I[i, j] = centers[labels[i, j]][:3]
 
 I = cv2.cvtColor(I, cv2.COLOR_Lab2RGB)
-plt.imshow(I)
-plt.show()
+# plt.imshow(I)
+# plt.show()
+outputdir = 'results/'
+if not os.path.exists(outputdir):
+	os.makedirs(outputdir)
+plt.savefig('results/abstraction')
 
 # Pickling the results
 centers[:, 3:] = (S/m)*centers[:, 3:]
@@ -43,3 +48,4 @@ with open('centers.pkl', 'wb') as f:
 	pickle.dump(centers, f)
 with open('labels.pkl', 'wb') as f:
 	pickle.dump(labels, f)
+print('Abstraction completed')

@@ -52,7 +52,9 @@ distribution = distribution/np.max(distribution)
 
 #display image
 plt.imshow(plotImage(distribution, labels), cmap='gray')
-plt.show()
+# plt.show()
+plt.savefig('results/distribution')
 
 # save data
 save('distribution', distribution)
+print('Distribution Calculated')

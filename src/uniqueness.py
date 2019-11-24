@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 import pickle
 import sys
+# import abstraction.outputdir as out
 
 def load(filename):
 	"""Loads data from pickle files"""
@@ -53,5 +54,6 @@ if __name__ == '__main__':
 	unique = uniqCenteres(centers)
 	unique = unique/np.max(unique)
 	plt.imshow(plotImage(unique,labels),cmap='gray')
-	plt.show()
+	plt.savefig('results/uniqueness.png')
 	save('uniq',unique)
+	print('Uniqueness Calculated')
