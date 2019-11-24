@@ -39,4 +39,5 @@ for i in range(h):
 		final[i, j] = S.dot(W)/np.sum(W)
 
 plt.imshow(final, cmap='gray')
-plt.show()
+# plt.show()
+plt.savefig('results/assign')
