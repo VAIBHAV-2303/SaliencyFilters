@@ -18,7 +18,7 @@ def save(filename, objects):
 
 def gaussWeight(ci,cj):
     """Calculates the gaussian weights between 2 segment colors"""
-    sigma = 20
+    sigma = 60
     prox = np.sum((ci-cj)**2)
     return np.exp(-prox/(2*(sigma**2)))
 
