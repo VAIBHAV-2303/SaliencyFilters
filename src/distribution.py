@@ -58,6 +58,6 @@ print("Distribution completed")
 #display image
 plt.imshow(plotImage(distribution, labels), cmap='gray')
 plt.show()
-
+plt.savefig('results/distribution')
 # save data
 save('distribution', distribution)

@@ -40,3 +40,4 @@ for i in range(h):
 
 plt.imshow(final, cmap='gray')
 plt.show()
+plt.savefig('results/assign.py')
